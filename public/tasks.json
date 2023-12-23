@@ -1,0 +1,83 @@
+[
+    {
+      "name": "Grocery Shopping",
+      "details": "Buy essential groceries for the week.",
+      "priority": "low",
+      "deadline": "2023-01-25",
+      "email": "john@doe.com",
+      "status": "to-do"
+    },
+    {
+      "name": "Morning Jog",
+      "details": "Engage in a 30-minute morning jog for fitness.",
+      "priority": "low",
+      "deadline": "2023-01-26",
+      "email": "food@education.com",
+      "status": "ongoing"
+    },
+    {
+      "name": "Pay Utility Bills",
+      "details": "Settle electricity, water, and internet bills.",
+      "priority": "moderate",
+      "deadline": "2023-02-01",
+      "email": "john@doe.com",
+      "status": "ongoing"
+    },
+    {
+      "name": "Read 2 Chapters",
+      "details": "Read two chapters of the novel 'Infinite Possibilities.'",
+      "priority": "low",
+      "deadline": "2023-02-03",
+      "email": "mahmudoneis1@gmail.com",
+      "status": "completed"
+    },
+    {
+      "name": "Prepare Project Presentation",
+      "details": "Create a presentation for the upcoming project meeting.",
+      "priority": "high",
+      "deadline": "2023-02-10",
+      "email": "mahmudoneis1@gmail.com",
+      "status": "completed"
+    },
+    {
+      "name": "Plan Weekend Activities",
+      "details": "Organize activities for the upcoming weekend.",
+      "priority": "low",
+      "deadline": "2023-02-15",
+      "email": "food@education.com",
+      "status": "to-do"
+    },
+    {
+      "name": "Complete Online Course",
+      "details": "Finish the remaining modules of the online course.",
+      "priority": "moderate",
+      "deadline": "2023-02-28",
+      "email": "john@doe.com",
+      "status": "to-do"
+    },
+    {
+      "name": "Update Resume",
+      "details": "Revise and update the resume with recent achievements.",
+      "priority": "high",
+      "deadline": "2023-03-10",
+      "email": "mahmudoneis1@gmail.com",
+      "status": "to-do"
+    },
+    {
+        "name": "Plan Weekend Activities",
+        "details": "Organize activities for the upcoming weekend.",
+        "priority": "low",
+        "deadline": "2023-02-15",
+        "email": "mahmudoneis1@gmail.com",
+        "status": "ongoing"
+      },
+      {
+        "name": "Complete Online Course",
+        "details": "Finish the remaining modules of the online course.",
+        "priority": "moderate",
+        "deadline": "2023-02-28",
+        "email": "mahmudoneis1@gmail.com",
+        "status": "completed"
+      }
+  ]
+  

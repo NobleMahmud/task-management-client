@@ -1,0 +1,32 @@
+/* @keyframes ping {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  } */
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .hover\:animate-glow:hover {
+    animation: glow 1s ease-in-out infinite;
+  }
+  .animate-glow {
+    animation: glow 1s ease-in-out infinite;
+  }
+ 
+  
+  /* .animate-once-ping {
+      animation: ping 1s ease-in 1, pulse 1s ease-in 10;
+  } */
+ 
+  
