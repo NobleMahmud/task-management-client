@@ -9,6 +9,9 @@ import SignUp2 from "../pages/SignUp/SignUp2";
 import PrivateRoute from "./PrivateRoute";
 import DashBoard from "../pages/DashBoard/DashBoard";
 import DashBoard2 from "../pages/DashBoard/DashBoard2";
+import EditTask from "../components/EditTask/EditTask";
+import NewsLetter from "../pages/NewsLetter/NewsLetter";
+import Contact from "../pages/Contact/Contact";
 
   
 export const router = createBrowserRouter([
@@ -21,12 +24,24 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/subscribe",
+        element: <NewsLetter></NewsLetter>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
         path: "/login",
         element: <LogIn></LogIn>,
       },
       {
         path: "/register",
         element: <SignUp2></SignUp2>,
+      },
+      {
+        path: "/tasks/:id",
+        element: <EditTask></EditTask>,
       },
       {
         path: "/dashboard",

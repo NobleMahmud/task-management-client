@@ -200,19 +200,19 @@ function NavList() {
                 </Typography>
             </Link> */}
             <Link
-                to="/" className="font-medium text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#" aria-current="page">
+                to="/" className="font-medium text-gray-500 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#" aria-current="page">
                 Home
             </Link>
             <Link
-                to="/tasks"
-                className="font-medium text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                to="/subscribe"
+                className="font-medium text-gray-500 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href="#"
             >
-                Tasks
+                Subscribe
             </Link>
             <Link
                 to="/contact"
-                className="font-medium text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                className="font-medium text-gray-500 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href="#"
             >
                 Contact Us
@@ -221,7 +221,7 @@ function NavList() {
                 user && 
                 <Link
                 to="/dashboard"
-                className="font-medium text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                className="font-medium text-gray-500 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href="#"
             >
                 Dashboard
