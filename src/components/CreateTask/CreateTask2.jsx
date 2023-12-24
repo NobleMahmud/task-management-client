@@ -20,6 +20,7 @@ const CreateTask2 = ({tasks, setTasks, refetch}) => {
         e.preventDefault();
 
         if(task.name.length < 3) return toast.error('Task must have at least 3 characters')
+        {
 
         setTasks((prev)=>{
             const list = [...prev, task]
@@ -35,6 +36,7 @@ const CreateTask2 = ({tasks, setTasks, refetch}) => {
             toast.success("Task Added!")
             return list
         });
+    }
 
         setTask({
             id: "", //for clearing the form

@@ -9,24 +9,18 @@ import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import TaskComponent from '../TaskComponent/TaskComponent';
 import TaskComponent2 from '../TaskComponent/TaskComponent2';
+import useTasks from '../../hooks/useTasks/useTasks';
 
 const DashBoard2 = () => {
   const { user } = useAuth();
-  const axiosPublic = useAxiosPublic();
-
-  const { data: allTasks = [], isPending: loading, refetch } = useQuery({
-    queryKey: ['allTasks'],
-    queryFn: async () => {
-      const res = await axiosPublic.get(`/tasks?email=${user?.email}`);
-      return res.data;
-    }
-  })
+    const [allTasks, loading, refetch] = useTasks();
 
 
 
-  const completed = allTasks.filter(task => task.status === 'completed');
-  const ongoing = allTasks.filter(task => task.status === 'ongoing');
+  const closed = allTasks.filter(task => task.status === 'closed');
+  const inprogress = allTasks.filter(task => task.status === 'inprogress');
   const toDo = allTasks.filter(task => task.status === 'todo');
+  
 
   const [tasks, setTasks] = useState(allTasks);
 
@@ -99,8 +93,8 @@ const DashBoard2 = () => {
                   </svg>
                 </div>
                 <div>
-                  <span className="block text-2xl font-bold">{completed?.length}</span>
-                  <span className="block text-gray-500">Completed</span>
+                  <span className="block text-2xl font-bold">{closed?.length}</span>
+                  <span className="block text-gray-500">Closed</span>
                 </div>
               </div>
               <div className="flex items-center p-8 bg-white shadow rounded-lg">
@@ -110,8 +104,8 @@ const DashBoard2 = () => {
                   </svg>
                 </div>
                 <div>
-                  <span className="block text-2xl font-bold">{ongoing?.length}</span>
-                  <span className="block text-gray-500">On Going</span>
+                  <span className="block text-2xl font-bold">{inprogress?.length}</span>
+                  <span className="block text-gray-500">In Progress</span>
                 </div>
               </div>
               <div className="flex items-center p-8 bg-white shadow rounded-lg">

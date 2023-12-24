@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import toast from 'react-hot-toast';
+import useTasks from '../../hooks/useTasks/useTasks';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const ListTasks2 = ({tasks, setTasks}) => {
+
+    const [allTasks, loading, refetch] = useTasks();
+
     const[todos, setTodos] = useState([]);
     const[inProgress, setInProgress] = useState([]);
     const[closed, setClosed] = useState([]);
 
     useEffect(()=>{
-
-        const fTodos = tasks?.filter(task=>task.status==="todo");
-        const fInProgress = tasks?.filter(task=>task.status==="inprogress");
-        const fClosed = tasks?.filter(task=>task.status==="closed");
+        refetch()
+        
+        //using this makes the status change not appear, needs adjustments
+        const fTodos = allTasks?.filter(task=>task.status==="todo");
+        const fInProgress = allTasks?.filter(task=>task.status==="inprogress");
+        const fClosed = allTasks?.filter(task=>task.status==="closed");
+        // const fTodos = tasks?.filter(task=>task.status==="todo");
+        // const fInProgress = tasks?.filter(task=>task.status==="inprogress");
+        // const fClosed = tasks?.filter(task=>task.status==="closed");
 
         setTodos(fTodos)
         setInProgress(fInProgress)
         setClosed(fClosed)
-    },[tasks])
+    },[tasks, allTasks])
 
     const statuses = ["todo", "inprogress", "closed"]
 
@@ -60,9 +70,16 @@ const Section = ({status, tasks, setTasks, todos, inProgress, closed}) =>{
         bg = "bg-green-500"
         tasksToMap = closed;
     }
-
+    const axiosPublic = useAxiosPublic();
     const addItemToSection = (id) =>{
-        // console.log('dropped', id, status);
+        
+        const updatedTask = {
+            id,
+            status
+        }
+        axiosPublic.patch(`/tasks/${id}`, updatedTask)
+        console.log('dropped', id, status);
+        
         setTasks(prev=>{
             // console.log("prev", prev);
 
@@ -101,6 +118,8 @@ const Header = ({text, bg, count}) =>{
 }
 
 const Task = ({task, tasks, setTasks}) =>{
+    const axiosPublic = useAxiosPublic();
+    const [allTasks, loading, refetch] = useTasks()
     const [{ isDragging }, drag] = useDrag(() => ({
         type: "task",
         item: {id: task.id},
@@ -110,14 +129,17 @@ const Task = ({task, tasks, setTasks}) =>{
       }))
       console.log(isDragging);
 
-    const handleRemove = id =>{
+    const  handleRemove = async(id) =>{
         // console.log(id);
         const fTasks = tasks?.filter(t=>t.id !==id);
-
+       await axiosPublic.delete(`/tasks/${id}`)
+       refetch()
+       toast("Task Removed", {icon: "💀"})
+       
         // localStorage.setItem("tasks", JSON.stringify(fTasks))
-        setTasks(fTasks)
-
-        toast("Task Removed", {icon: "💀"})
+        // setTasks(fTasks)
+        //     refetch()
+        // toast("Task Removed", {icon: "💀"})
     }
     return (
        <div ref={drag} className={`relative p-4 mt-8 shadow-md rounded-md cursor-grab ${isDragging ? "opacity-25" : "opacity-100"}`}>
