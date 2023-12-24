@@ -4,7 +4,8 @@ import './banner.css'
 
 const Banner = () => {
     return (
-        <div>
+        <div data-aos="fade-up"
+        data-aos-duration="3000">
             <div className="relative pt-32 -mt-24 bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
   <div className="absolute inset-0">
     <img src="https://i.ibb.co/Nm4bBsC/task.png" alt="Background Image" className="object-cover object-center w-full mt-12 h-full" />
